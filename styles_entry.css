@@ -1,0 +1,163 @@
+/*************************************
+ +Entry
+ *************************************/
+
+.entry {
+    position: relative;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+}
+
+.entry a {
+    color: #40a6b0;
+    text-decoration: none;
+}
+
+.entry a:hover {
+    color: #58B1C1;
+    text-decoration: underline;
+}
+
+.entryTitle_wrap {
+    padding-right: 1em;
+}
+.entryTitle_wrap table {
+    width: 100%;
+    border: 0px;
+}
+
+.entryTitle_wrap .entryTitleTd {
+    width: 100%;
+}
+
+.entryTitle_wrap .entryAutorTd {
+    width: 1px;
+}
+
+.entryTitle {
+    padding: 0em 1em;
+}
+
+.entryTitle h1 a {
+    text-decoration: none;
+    font-size: 1em;
+    color: #8AC11B;
+    float: left;
+    display: block;
+    width: 100%;
+}
+
+.entryTitle h2 a {
+    text-decoration: none;
+    font-size: 1em;
+    color: #8AC11B;
+    float: left;
+}
+
+.entryTitle_wrap .autor {
+    font-size: 0.7em;
+    white-space: nowrap;
+}
+
+.entryTitle_wrap .autorFirstEntry {
+    padding-top: 1.3em;
+}
+    
+.entryTitle_wrap .autorSecondEntry {
+    padding-top: 0.4em;
+}
+
+.entryDateContainer {
+    position: absolute;
+    left: -45px;
+    top: 0px;
+    width: 60px;
+    background-image: url(images/dateArrow.gif);
+    background-repeat: no-repeat;
+    background-position: 45px center;
+    height: 40px;
+}
+
+.entryDateBorders {
+    border-top: 1px solid #494451;
+    border-left: 1px solid #494451;
+    border-bottom: 1px solid #494451;
+    width: 43px;
+    height: 42px;
+    background-color: #2C2634;
+}
+
+.entryDate {
+    width: 43px;
+    color: gray;
+    height: 44px;
+    text-align: center;
+    background-image: url(images/dateBG.gif);
+    background-repeat: no-repeat;
+    background-position: right top;
+    position: relative;
+    top: -1px;
+}
+
+.entryDateMonth {
+    padding-top: 0.7em;
+    font-size: 0.6em;
+    font-family: Georgia;
+    line-height: 0.8em;
+}
+
+.entryDateDay {
+    font-size: 1.5em;
+    font-family: Georgia;
+    line-height: 1em;
+}
+
+.entryBody {
+    clear: both;
+    padding: 1em 2em;
+    font-size: 0.8em;
+    line-height: 1.6em;
+}
+
+.entryBody img {
+    margin: 0.5em;
+    border: 1px solid #333;
+}
+
+.entryBody a img {
+    border: 1px solid #333;
+}
+
+.entryBody ul {
+    list-style-position: inside;
+    list-style-type: square;
+}
+
+.entryBody ol {
+    list-style-position: inside;
+    list-style-type: decimal-leading-zero;
+}
+
+.entryBody li{
+    margin-top: 1em;
+}
+
+.entryBody li p{
+    margin-left: 1em;
+}
+
+.entryFooter {
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 0.5em 1em 0.5em 1em;
+    border-top: 1px solid #DFDFDF;
+    border-bottom: 1px solid #AAAAAA;
+}
+
+.entryFooter .postInCategories a {
+    color: #666;
+}
+
+.entryFooter .commentslink a {
+    color: #666;
+}

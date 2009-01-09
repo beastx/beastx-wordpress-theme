@@ -1,0 +1,22 @@
+/*  
+Theme Name: Beastx Theme
+Theme URI: http://blog.beastx.com.ar/downloads/wordpress/themes/beastx/
+Description: Beastx Theme is a lightweight, super-optimized WordPress theme packed with features (SEO, Adsense & Widget Ready). <a href="http://blog.beastx.com.ar/downloads/wordpress/themes/beastx/">Beastx Theme</a> is designed by <a href="http://www.joseVittone.com.ar/">Jose Vittone</a> and developed by <a href="http://www.beastx.com.ar/">Beastx (Leandro Asrilevich)</a>
+Version: 0.1
+Tags: some tags
+Donate link: http://blog.beastx.com.ar/?p=40#donate
+Author: Leandro Asrilevich, Jose Vittone
+Contributors: pixu (Jose Vittone)
+Author URI: http://www.beastx.com.ar/
+The CSS/XHTML is released under GPL:  http://www.opensource.org/licenses/gpl-license.php
+*/
+
+@import url("styles_normalization.css");
+@import url("styles_header.css");
+@import url("styles_general.css");
+@import url("styles_footer.css");
+@import url("styles_misc.css");
+@import url("styles_comments.css");
+@import url("styles_entry.css");
+@import url("styles_menu.css");
+@import url("styles_sidebar.css");

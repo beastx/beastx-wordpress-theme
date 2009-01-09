@@ -1,0 +1,169 @@
+/*************************************
+ +Footer
+ *************************************/
+ 
+#footerContainer {
+    position: fixed;
+    left: 0px;
+    height: 200px;
+    width:100%;
+    overflow-y: hidden;
+    color: #FFFFFF;
+    font-size: 0.8em;
+}
+
+.footerContainer {
+    bottom: 0px;
+}
+
+.hiddenFooterContainer {
+    bottom: -160px;
+}
+
+* html #footerContainer {
+    position: absolute;
+}
+
+#footer {
+    height: 100%;
+}
+
+* html #footer {
+    margin-right:18px;
+}
+
+#footerContainer a {
+    color: #40a6b0;
+    text-decoration: none;
+}
+
+#footerContainer .tableContainer {
+    z-index:9999;
+    position: absolute;
+    width: 100%;
+    top:0px;
+}
+
+#footerContainer table {
+    font-size: 1em;
+}
+
+#footerContainer table td {
+    vertical-align: top;
+}
+
+#footerTabsContent {
+    width: 100%;
+}
+
+.blogInfoContent {
+    width: 1px;
+    font-size: 0.8em;
+}
+
+.blogInfoContent div {
+    white-space: nowrap;
+    padding-top: 0.2em;
+}
+
+.borderAndBackgroundContainer {
+    position: absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    width: 100%;
+    height:100%;
+    z-index:9996;
+}
+
+.borderAndBackgroundContainer .transparentBar {
+    background-color: #1D1725;
+    opacity: 0.8;
+    position: absolute;
+    top:2px;
+    left:0px;
+    right:0px;
+    width: 100%;
+    height:20px;
+    z-index:9998;
+}
+
+.opaqueBackground {
+    border-top: 3px solid #8EC21D;
+    background-color: #1D1725;
+    position: absolute;
+    top:22px;
+    left:0px;
+    right:0px;
+    width: 100%;
+    height:100%;
+    z-index:9997;
+}
+
+#footerTabsContent .tabManager {
+    margin-left: 1em;
+}
+
+#footerTabsContent .tabManager .tabLabels {
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+#footerTabsContent .tabManager .tabLabels .leftCorner {
+    width: 10px;
+    background-image: url(images/bottomTabManagerLeftCorner.gif);
+    background-repeat: no-repeat;
+    float: left;
+    height: 2em;
+}
+
+#footerTabsContent .tabManager .tabLabels .rightCorner {
+    width: 10px;
+    background-image: url(images/bottomTabManagerRightCorner.gif);
+    background-repeat: no-repeat;
+    float: left;
+    height: 2em;
+}
+
+#footerTabsContent .tabManager .tabLabels .tabLabel {
+    float: left;
+    background-color: #8EC21D;
+    border:3px solid #8EC21D;
+    border-bottom: 0px;
+}
+
+#footerTabsContent .tabManager .tabLabels .firstTab {
+    border-left: 0px;
+}
+
+#footerTabsContent .tabManager .tabLabels .lastTab {
+    border-right: 0px;
+}
+
+#footerTabsContent .tabManager .tabLabels .tabLabel a {
+    color: #666;
+    display: block;
+    padding: 0.3em 0.6em;
+    outline: none;
+}
+
+#footerTabsContent .tabManager .tabLabels .selected a {
+    color: #000;
+}
+
+#footerTabsContent .tabManager .tabContents {
+    clear: both;
+    position: relative;
+}
+
+#footerTabsContent .tabManager .tabContents .tabContent {
+    display: none;
+    overflow-y: auto;
+    position: relative;
+    height: 100%;
+    padding-top: 0.6em;
+}
+
+#footerTabsContent .tabManager .tabContents .selected {
+    display: block;
+}

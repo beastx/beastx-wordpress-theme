@@ -1,0 +1,48 @@
+/*************************************
+ +Header
+ *************************************/
+
+.headerContainer {
+    background-image: url(images/headerBG.gif);
+    background-repeat: repeat-x;
+    height: 151px;
+    border-top: 4px solid #8EC21D;
+    padding-top: 40px;
+}
+
+.headerContainer .header {
+    width: 90%;
+    margin: 0 auto;
+    height: 150px;
+    cursor: default;
+}
+
+.headerContainer .header h1.logoContainer {
+    display: inline;
+}
+
+.headerContainer .header h1.logoContainer span {
+    display: none;
+}
+
+.headerContainer .header h2.blogDescription {
+    font-size: 0.9em;
+    color: #4E4262;
+    font-style: italic;
+}
+
+.headerContainer .header .mainButtonsContainer {
+    float: right;
+    margin-top: 2em;
+}
+
+.headerContainer .header .mainButtonsContainer ul.mainButtonsList {
+    list-style-type: none;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.headerContainer .header .mainButtonsContainer ul.mainButtonsList li.mainButton {
+    float: left;
+    margin-left: 1em;
+}

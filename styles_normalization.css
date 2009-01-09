@@ -1,0 +1,49 @@
+/*************************************
+ +Hn, a and p
+ *************************************/
+* {
+    padding: 0px; 
+    margin: 0px;
+    font-family: verdana, arial;
+}
+
+html {
+    height: 100%;
+}
+
+* html {
+    overflow: hidden;
+}
+
+body {
+    background-color: #302b38;
+    height: 100%;
+}
+
+* html body {
+    overflow: hidden;
+}
+
+pre {
+}
+
+p {
+}
+
+table {
+}
+
+code {
+}
+
+a {
+}
+
+a:hover{
+}
+
+h1, h2, h3, h4{
+}
+
+blockquote { 
+}
