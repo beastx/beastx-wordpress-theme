@@ -1,0 +1,3 @@
+[submodule "scripts/tinkerman"]
+	path = scripts/tinkerman
+	url = git://github.com/amfc/tinkerman.git
