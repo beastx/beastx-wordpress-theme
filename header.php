@@ -35,8 +35,6 @@
         <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/Dimensions.js"></script>
         <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/Core.js"></script>
         
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/Log.js"></script>
-        
         <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/ui/TabManager.js"></script>
         <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/ui/FooterToggler.js"></script>
         
