@@ -1,18 +1,17 @@
 var FooterToggler = function() {
 }
 
-FooterToggler.prototype.init = function(elementId, showPosition, hidePosition) {
-    this.element = DOM.get(elementId);
-    Log(this.element);
-    this.showPosition = showPosition;
-    this.hidePosition = hidePosition;
+FooterToggler.prototype.init = function(elementId) {
+    this.element = $(elementId);
+    this.showPosition = this.element.offsetTop;
+    this.hidePosition = -(this.element.offsetHeight - 50);
     this.setVisible(false, false);
     this.addListeners();
 }
 
 FooterToggler.prototype.addListeners = function() {
-    EVT.addEventListener(this.element, 'mouseover', EVT.createCaller(this, 'onMouseOver'));
-    EVT.addEventListener(this.element, 'mouseout', EVT.createCaller(this, 'onMouseOut'));
+    Event.observe(this.element, 'mouseenter', createCaller(this, 'onMouseOver'));
+    Event.observe(this.element, 'mouseleave', createCaller(this, 'onMouseOut'));
 }
 
 FooterToggler.prototype.onMouseOver = function(event) {
@@ -25,7 +24,6 @@ FooterToggler.prototype.onMouseOut = function(event) {
 
 FooterToggler.prototype.setVisible = function(visible, useAnimation) {
     this.visible= visible;
-    Log(this.visible);
     if (this.visible) {
         this.show(useAnimation);
     } else {
@@ -33,98 +31,30 @@ FooterToggler.prototype.setVisible = function(visible, useAnimation) {
     }
 }
 
+FooterToggler.prototype.getActualBottomValue = function() {
+    var bottomValue = this.element.getStyle('bottom');
+    return parseInt(bottomValue);
+}
+
 FooterToggler.prototype.show = function(useAnimation) {
+    var me = this;
     if (useAnimation) {
-        function show (element, toBottom) {
-            var options = {
-                time: 0.1,
-                endBottom: 0,
-                step: 1,
-                curBottom: toBottom,
-                onDone: function() {
-                    Log(loop.step, 'done');
-                }
-            };
-            element.style.bottom = options.curBottom + 'px';
-            
-            var loop = new EFF.Loop()
-            loop.init({
-                onStep: function(loop) {
-                    options.curBottom += options.step;
-                    element.style.bottom = options.curBottom + 'px';
-                    if(options.onStep) {
-                        options.onStep(loop);
-                    }
-                },
-                onDone: function(loop) {
-                    element.style.bottom = options.endBottom + 'px';
-                    if(options.onDone) {
-                        options.onDone(loop);
-                    }
-                }
-            });
-            loop.maxSteps = Math.floor((options.endBottom - options.curBottom) / options.step);
-            loop.delay = (options.time / loop.maxSteps) * 1000;
-            loop.run();
-            return loop;
+        if (this.hideAnimation) {
+            this.hideAnimation.cancel();
         }
-        
-        if (!this.showAnimation) {
-            if (this.hideAnimation) {
-                this.hideAnimation.cancel();
-                this.hideAnimation = null;
-            }
-            this.showAnimation = show(this.element, this.hidePosition);
-            Log(this.showAnimation);
-        }
+        this.showAnimation = new Effect.Tween(this.element, this.getActualBottomValue(), 0,  { duration: 0.5, transition: Effect.Transitions.sinoidal }, function(value) { me.element.style.bottom = parseInt(value) + 'px'; } );
     } else {
         this.element.style.bottom = this.showPosition + 'px';
     }
 }
 
 FooterToggler.prototype.hide = function(useAnimation) {
+    var me = this;
     if (useAnimation) {
-        function hide (element, toBottom) {
-            var options = {
-                time: 0.1,
-                endBottom: toBottom,
-                step: 1,
-                curBottom: 0,
-                onDone: function() {
-                    Log(loop.step, 'done');
-                }
-            };
-            element.style.bottom = options.curBottom + 'px';
-            
-            var loop = new EFF.Loop()
-            loop.init({
-                onStep: function(loop) {
-                    options.curBottom -= options.step;
-                    element.style.bottom = options.curBottom + 'px';
-                    if(options.onStep) {
-                        options.onStep(loop);
-                    }
-                },
-                onDone: function(loop) {
-                    element.style.bottom = options.endBottom + 'px';
-                    if(options.onDone) {
-                        options.onDone(loop);
-                    }
-                }
-            });
-            loop.maxSteps = Math.floor((options.curBottom - options.endBottom) / options.step);
-            loop.delay = (options.time / loop.maxSteps) * 1000;
-            loop.run();
-            return loop;
+        if (this.showAnimation) {
+            this.showAnimation.cancel();
         }
-        
-        if (!this.hideAnimation) {
-            if (this.showAnimation) {
-                this.showAnimation.cancel();
-                this.showAnimation = null;
-            }
-            this.hideAnimation = hide(this.element, this.hidePosition);
-        }
+        this.hideAnimation = new Effect.Tween(this.element, this.getActualBottomValue(), this.hidePosition,  { duration: 0.8, delay: 0.4, transition: Effect.Transitions.sinoidal }, function(value) { me.element.style.bottom = parseInt(value) + 'px'; } );
     } else {
         this.element.style.bottom = this.hidePosition + 'px';
     }
