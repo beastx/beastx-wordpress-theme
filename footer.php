@@ -36,10 +36,8 @@
     </body>
 </html>
 <script>
-//~ window.onload = function() {
-    var tabManager = new TabManager();
-    tabManager.init('footerTabsContent', 'h4');
-    var footerToggler = new FooterToggler();
-    footerToggler.init('footerContainer', 0, -175);
-//~ }
+window.onload = function() {
+    var tabManager = New(TabManager, [ 'footerTabsContent', 'h4' ]);
+    var footerToggler = New(FooterToggler, [ 'footerContainer', 0, -175 ]);
+}
 </script>
