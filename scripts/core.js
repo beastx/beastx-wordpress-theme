@@ -2,32 +2,17 @@ function createCaller(object, methodName, params) {
     var f;
     if (params) {
         f = function() {
-            if (!object[methodName] && DEBUG_MODE) {
+            if (!object[methodName]) {
                 debugger;
             }
             return object[methodName].apply(object, params);
         }
     } else {
         f = function() {
-            if (!object[methodName] && DEBUG_MODE) {
+            if (!object[methodName]) {
                 debugger;
             }
             return object[methodName].apply(object, arguments);
-        }
-    }
-    if (App.DEBUG_MODE) {
-        f.getExtraInfoToLog = function() {
-            var data = {
-                caller: {
-                    object: object,
-                    methodName: methodName,
-                    callback: object[methodName]
-                }
-            };
-            if (params) {
-                data.caller.params = params;
-            }
-            return data;
         }
     }
     return f;
