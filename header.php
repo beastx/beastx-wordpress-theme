@@ -14,6 +14,9 @@
         <script type="text/javascript" src="<? bloginfo('template_directory') ?>/sifr/sifr-debug.js"></script>
         <script type="text/javascript" src="<? bloginfo('template_directory') ?>/sifr/sifr-config.js"></script>
         
+        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/scriptaculous/scriptaculous-js-1.8.2/lib/prototype.js"></script>
+        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/scriptaculous/scriptaculous-js-1.8.2/src/scriptaculous.js"></script>
+        
         <?
             $tinkermanPath = get_bloginfo('template_directory') . '/scripts/tinkerman/';
             require_once('scripts/tinkerman/includeLog.php');
