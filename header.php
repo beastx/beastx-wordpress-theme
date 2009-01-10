@@ -1,8 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
 <html <?php language_attributes(); ?>>
     <head>
-        <meta name="algo" content="algo" id="algo">
-        
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
         <title>
             <?php bloginfo('name'); ?> <?php if ( is_single() ) { ?> &raquo; Blog Archive <?php } ?> <?php wp_title(); ?>
@@ -15,25 +13,6 @@
         <script type="text/javascript" src="<? bloginfo('template_directory') ?>/sifr/sifr.js"></script>
         <script type="text/javascript" src="<? bloginfo('template_directory') ?>/sifr/sifr-debug.js"></script>
         <script type="text/javascript" src="<? bloginfo('template_directory') ?>/sifr/sifr-config.js"></script>
-        
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/Browser.js"></script>
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/Elements.js"></script>
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/Events.js"></script>
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/Effects.js"></script>
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/Dimensions.js"></script>
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/FocusManager.js"></script>
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/Json.js"></script>
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/ObjectUtils.js"></script>
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/Lists.js"></script>
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/Remote.js"></script>
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/Validator.js"></script>
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/Variables.js"></script>
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/ColorUtils.js"></script>
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/Cookies.js"></script>
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/DragManager.js"></script>
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/Forms.js"></script>
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/Dimensions.js"></script>
-        <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/base/Core.js"></script>
         
         <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/ui/TabManager.js"></script>
         <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/ui/FooterToggler.js"></script>
