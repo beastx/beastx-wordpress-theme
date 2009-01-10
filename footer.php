@@ -38,6 +38,6 @@
 <script>
 window.onload = function() {
     var tabManager = New(TabManager, [ 'footerTabsContent', 'h4' ]);
-    var footerToggler = New(FooterToggler, [ 'footerContainer' ]);
+    var footerToggler = New(FooterToggler, [ 'footerContainer', tabManager.getLabelsHeigth() + 2 ]);
 }
 </script>

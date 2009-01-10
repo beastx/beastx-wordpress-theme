@@ -1,10 +1,9 @@
 var FooterToggler = function() {
 }
 
-FooterToggler.prototype.init = function(elementId) {
+FooterToggler.prototype.init = function(elementId, footerHeaderHeight) {
     this.element = $(elementId);
-    this.showPosition = this.element.offsetTop;
-    this.hidePosition = -(this.element.offsetHeight - 50);
+    this.hidePosition = -(this.element.offsetHeight - footerHeaderHeight);
     this.setVisible(false, false);
     this.addListeners();
 }

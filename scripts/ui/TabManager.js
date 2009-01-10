@@ -91,6 +91,10 @@ TabManager.prototype.onTabLabelClick = function(event) {
     this.selectTab(event.memo.index);
 }
 
+TabManager.prototype.getLabelsHeigth = function() {
+    return this.labels[0].element.offsetHeight;
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var TabLabel = function() {
