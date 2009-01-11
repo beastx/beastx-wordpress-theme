@@ -39,3 +39,11 @@
     line-height: 1em;
 }
 
+
+.rightSideBar #topBlock ul,
+.rightSideBar #leftBar ul,
+.rightSideBar #rightBar ul {
+    list-style-position: inside;
+    list-style-image: url(images/ulItem.gif);
+}
+

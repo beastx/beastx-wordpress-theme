@@ -27,7 +27,6 @@
  
 ul.categories {
     font-size: 0.9em;
-    list-style-position: inside;
     list-style-type: circle;
 }
 
@@ -61,11 +60,15 @@ ul.categories a:hover{
     color: #A2D8DD;
 }
 
-.categories .cat-item .children {
+ul.categories li.cat-item ul.children {
     margin-left: 2em;
     list-style-type: disc;
     font-size: 0.8em;
     font-weight: normal;
+}
+
+ul.categories li.cat-item ul.children li {
+    list-style-image: url(images/ulItemSmall.gif);
 }
 
 .categories .cat-item .children .cat-item {
