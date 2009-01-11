@@ -19,8 +19,12 @@
                                     </td>
                                     <td class="blogInfoContent">
                                         <div>
-                                            <?php bloginfo('name'); ?> is powered by <a href="http://wordpress.org/">WordPress</a> | 
-                                            <a href="<?php bloginfo('rss2_url'); ?>">Entries (RSS)</a> and <a href="<?php bloginfo('comments_rss2_url'); ?>">Comments (RSS)</a>
+                                            <span class="blogInfo">
+                                                <?php bloginfo('name'); ?> is powered by <a href="http://wordpress.org/">WordPress</a> | 
+                                                <a href="<?php bloginfo('rss2_url'); ?>">Entries (RSS)</a> and <a href="<?php bloginfo('comments_rss2_url'); ?>">Comments (RSS)</a>
+                                            </span>
+                                            <?=getImageTag('validXHTML.gif', 59, 16, 'Valid XHTML Code'); ?>
+                                            <?=getImageTag('validCSS.gif', 44, 16, 'Valid CSS Code'); ?>
                                         </div>
                                     </td>
                                 </tr>
