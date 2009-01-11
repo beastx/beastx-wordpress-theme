@@ -13,6 +13,8 @@
                                             if (function_exists('dynamic_sidebar')) {
                                                 if (!dynamic_sidebar(4)) {
                                                     echo '<script type="text/javascript">var dontUseBottomBar = true; </script>';
+                                                } else {
+                                                    echo '<script type="text/javascript">var dontUseBottomBar = false; </script>';
                                                 }
                                             }
                                         ?>
@@ -46,7 +48,7 @@ if (!dontUseBottomBar) {
     var tabManager;
     var footerToggler
     Event.observe(window, 'load', function() {
-        tabManager = New(TabManager, [ 'footerTabsContent', 'h4' ]);
+        tabManager = New(TabManager, [ 'footerTabsContent', 'bottomBarWidget', 'bottomBarWidgetTitle' ]);
         footerToggler = New(FooterToggler, [ 'footerContainer', tabManager.getLabelsHeigth() + 2 ]);
     });
 } else {

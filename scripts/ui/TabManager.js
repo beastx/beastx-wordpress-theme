@@ -1,56 +1,33 @@
 var TabManager = function() {
 }
 
-TabManager.prototype.init = function(containerElemnetId, tabLabelsElementTagName, initialSelectedTab) {
+TabManager.prototype.init = function(containerElemnetId, tabContentClassName, tabLabelClassName, initialSelectedTab) {
     this.labels = [];
     this.contents = [];
     this.containerElement = $(containerElemnetId);
-    this.tabLabelsElementTagName = tabLabelsElementTagName;
     this.selectedTab = initialSelectedTab ? initialSelectedTab : 0;
-    this.prepareTabsElements();
+    this.prepareTabsElements(tabContentClassName, tabLabelClassName);
     this.updateUI();
 }
 
-TabManager.prototype.prepareTabsElements = function() {
-    var tempLabelsElements = this.containerElement.select(this.tabLabelsElementTagName);
-    for (var i = 0; i < tempLabelsElements.length; ++i) {
-        var contentElements = this.getContentBeetwenTabLabels(tempLabelsElements[i], tempLabelsElements[i + 1]);
-        this.containerElement.removeChild(tempLabelsElements[i]);
+TabManager.prototype.prepareTabsElements = function(tabContentClassName, tabLabelClassName) {
+    var tempContentElements = this.containerElement.select('.' + tabContentClassName);
+    for (var i = 0; i < tempContentElements.length; ++i) {
+        var labelElement = tempContentElements[i].select('.' + tabLabelClassName)[0];
+        tempContentElements[i].removeChild(labelElement);
+        this.containerElement.removeChild(tempContentElements[i]);
+        Log(labelElement);
         
-        var label = New(TabLabel, [ tempLabelsElements[i].firstChild.nodeValue, i, (i == this.selectedTab), this.eventManager, tempLabelsElements.length ]);
+        var label = New(TabLabel, [ labelElement, i, (i == this.selectedTab), this.eventManager, tempContentElements.length ]);
         this.labels.push(label);
         
-        var content = New(TabContent,  [ contentElements, i, (i == this.selectedTab), this.eventManager ]);
+        var content = New(TabContent,  [ tempContentElements[i], i, (i == this.selectedTab), this.eventManager ]);
         this.contents.push(content);
     }
     
-    while(this.containerElement.childNodes.length > 0) {
-        this.containerElement.removeChild(this.containerElement.firstChild);
-    }
     document.observe("tabManager:tabselect", createCaller(this, 'onTabLabelClick'));
 }
 
-TabManager.prototype.getContentBeetwenTabLabels = function(tab1, tab2) {
-    var elements = [];
-    if (!tab1) {
-        return;
-    }
-    if (tab1 && tab2) {
-        currentElement = tab1;
-        while (currentElement.next(0) != tab2) {
-            elements.push(currentElement.next(0));
-            currentElement = currentElement.next(0);
-        }
-    } else {
-        currentElement = tab1;
-        while (currentElement.next(0)) {
-            elements.push(currentElement.next(0));
-            currentElement = currentElement.next(0);
-        }
-    }
-    return elements;
-}
-    
 TabManager.prototype.updateUI = function() {
     this.labelsContainer = new Element('div', { 'class': 'tabLabels' });
     this.contentsContainer = new Element('div', { 'class': 'tabContents' });
@@ -144,8 +121,8 @@ TabLabel.prototype.setSelected = function(selected) {
 var TabContent = function() {
 }
 
-TabContent.prototype.init = function(contentElements, index, selected, parentEventManager) {
-    this.contentElements = contentElements;
+TabContent.prototype.init = function(content, index, selected, parentEventManager) {
+    this.content = content;
     this.index = index;
     this.selected = selected;
     this.eventManager = parentEventManager;
@@ -153,10 +130,7 @@ TabContent.prototype.init = function(contentElements, index, selected, parentEve
 }
 
 TabContent.prototype.updateUI = function() {
-    this.element = new Element('div', { 'class': 'tabContent' });
-    for (var i = 0; i < this.contentElements.length; ++i) {
-        this.element.insert(this.contentElements[i]);
-    }
+    this.element = createDOMElement('div', { 'class': 'tabContent' }, [ this.content ]);
 }
 
 TabContent.prototype.setSelected = function(selected) {
