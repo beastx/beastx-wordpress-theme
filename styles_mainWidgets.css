@@ -1,0 +1,22 @@
+/*************************************
+ +Main Widgets
+ *************************************/
+ 
+#calendar_wrap table {
+    font-size: 1em;
+}
+
+#calendar_wrap td {
+    text-align: center;
+    background-color: #666666;
+    font-size: 0.7em;
+    padding: 0.2em;
+}
+
+#calendar_wrap td.pad {
+    background-color: #3D3746;
+}
+
+#calendar_wrap td#today {
+    background-color: #40A6B0;
+}
