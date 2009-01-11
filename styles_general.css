@@ -26,13 +26,16 @@
     float: left;
     width: 72%;
     background-color: #ECECEC;
-    background-image: url(images/contentTopBG.gif);
-    background-repeat: repeat-x;
+    background-image: url(images/contentBorder.gif);
+    background-repeat: repeat-y;
     position: relative;
     top: -30px;
-    border-top: 4px solid #A1A2A7;
 }
 
 #content {
     padding: 1em 0em;
+    background-image: url(images/contentTopBG.gif);
+    background-repeat: repeat-x;
+    border-top: 4px solid #A1A2A7;
+    margin-left: 5px;
 }
