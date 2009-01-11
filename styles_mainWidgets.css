@@ -2,21 +2,89 @@
  +Main Widgets
  *************************************/
  
-#calendar_wrap table {
+  /* CALENDAR */ 
+ 
+#wp-calendar {
     font-size: 1em;
 }
 
-#calendar_wrap td {
+#wp-calendar td {
     text-align: center;
     background-color: #666666;
     font-size: 0.7em;
     padding: 0.2em;
 }
 
-#calendar_wrap td.pad {
+#wp-calendar td.pad {
     background-color: #3D3746;
 }
 
-#calendar_wrap td#today {
+#wp-calendar td#today {
     background-color: #40A6B0;
 }
+
+/* CATEGORIES */ 
+ 
+ul.categories {
+    font-size: 0.9em;
+    list-style-position: inside;
+    list-style-type: circle;
+}
+
+ul.categories a:hover{
+    text-decoration: underline;
+}
+
+.categories .cat-item {
+    margin-bottom: 0.2em;
+    font-size: 0.7em;
+    color: #999;
+}
+
+.categories .cat-item a{
+    font-size: 1.5em;
+}
+
+.categories .current-cat {
+    font-weight: bold;
+}
+
+.categories .current-cat a {
+    color: #FFFFFF;
+}
+
+.categories .current-cat-parent {
+    font-weight: bold;
+}
+
+.categories .current-cat-parent a {
+    color: #A2D8DD;
+}
+
+.categories .cat-item .children {
+    margin-left: 2em;
+    list-style-type: disc;
+    font-size: 0.8em;
+    font-weight: normal;
+}
+
+.categories .cat-item .children .cat-item {
+    font-size: 1.2em;
+}
+
+.categories .cat-item .children .cat-item a{
+    font-size: 1.3em;
+    color: #40A6B0;
+}
+
+.categories .cat-item .children .current-cat {
+    font-weight: bold;
+}
+
+.categories .cat-item .children .current-cat a{
+    color: #FFFFFF;
+}
+
+
+/* TAGS CLOUDS */ 
+
