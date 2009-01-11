@@ -57,3 +57,18 @@ sIFR.replace(SohoGothicProMediumItalic, {
     selector: 'h2.blogDescription',
     css: '.sIFR-root { background-color: #261138; color: #4E4262; font-style: italic; }'
 });
+
+sIFR.replace(SohoGothicProLight, {
+    selector: 'h4.topBlockWidgetTitle',
+    css: '.sIFR-root { background-color: #302B38; color: #f9f9f9; }'
+});
+
+sIFR.replace(SohoGothicProLight, {
+    selector: 'h4.rightSideBarLeftWidgetTitle',
+    css: '.sIFR-root { background-color: #302B38; color: #f9f9f9; }'
+});
+
+sIFR.replace(SohoGothicProLight, {
+    selector: 'h4.rightSideBarRightWidgetTitle',
+    css: '.sIFR-root { background-color: #302B38; color: #f9f9f9; }'
+});
