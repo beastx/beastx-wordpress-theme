@@ -10,8 +10,10 @@
                                 <tr>
                                     <td id="footerTabsContent">
                                         <?
-                                            if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2)) {
-                                                echo "no hay bottombar";
+                                            if (function_exists('dynamic_sidebar')) {
+                                                if (!dynamic_sidebar(4)) {
+                                                    echo '<script type="text/javascript">var dontUseBottomBar = true; </script>';
+                                                }
                                             }
                                         ?>
                                     </td>
@@ -35,9 +37,15 @@
         </div>
     </body>
 </html>
-<script>
-window.onload = function() {
-    var tabManager = New(TabManager, [ 'footerTabsContent', 'h4' ]);
-    var footerToggler = New(FooterToggler, [ 'footerContainer', tabManager.getLabelsHeigth() + 2 ]);
+<script type="text/javascript">
+if (!dontUseBottomBar) {
+    var tabManager;
+    var footerToggler
+    Event.observe(window, 'load', function() {
+        tabManager = New(TabManager, [ 'footerTabsContent', 'h4' ]);
+        footerToggler = New(FooterToggler, [ 'footerContainer', tabManager.getLabelsHeigth() + 2 ]);
+    });
+} else {
+    $('footerContainer').style.bottom = '-175px';
 }
 </script>
