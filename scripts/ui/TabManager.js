@@ -16,7 +16,6 @@ TabManager.prototype.prepareTabsElements = function(tabContentClassName, tabLabe
         var labelElement = tempContentElements[i].select('.' + tabLabelClassName)[0];
         tempContentElements[i].removeChild(labelElement);
         this.containerElement.removeChild(tempContentElements[i]);
-        Log(labelElement);
         
         var label = New(TabLabel, [ labelElement, i, (i == this.selectedTab), this.eventManager, tempContentElements.length ]);
         this.labels.push(label);
