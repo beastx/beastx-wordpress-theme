@@ -1,14 +1,23 @@
 <?
-if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(1)) {
-    echo "no hay disebar";
+if (function_exists('dynamic_sidebar')) {
+    ?>
+    <div id="topBlock">
+        <? if (!dynamic_sidebar(1)) {
+            echo "Dynamic Top Block not work.";
+        } ?>
+    </div>
+    <div id="leftBar">
+        <? if (!dynamic_sidebar(2)) {
+            echo "Dynamic Right SideBar Left not work.";
+        } ?>
+    </div>
+    <div id="rightBar">
+        <? if (!dynamic_sidebar(3)) {
+            echo "Dynamic Right SideBar Right not work.";
+        } ?>
+    </div>
+    <?
 } else {
-?>
-<div class="adsContainer">Ads</div>
-<div class="categoriesContainer">
-    <ul>
-        <? wp_list_categories('show_count=1&title_li=<h2>Categories</h2>'); ?>
-    </ul>
-</div>
-<?
+    echo "Dynamic Sidebars not work.";
 }
 ?>
