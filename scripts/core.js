@@ -18,11 +18,12 @@ function createCaller(object, methodName, params) {
     return f;
 }
 
-function createElement(tagName, attributes, childNodes) {
+function createDOMElement(tagName, attributes, childNodes) {
     var element = new Element(tagName, attributes);
     for (var i = 0; i < childNodes.length; ++i) {
         element.insert(childNodes[i]);
     }
+    return element;
 }
 
 function New(classRef, constructorArgs) {
