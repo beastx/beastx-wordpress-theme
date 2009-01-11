@@ -3,6 +3,15 @@
 if (function_exists('register_sidebar')) {
     register_sidebar(
         array(
+            'name'=>'Top Blobk',
+            'before_widget' => '<div class="topBlockWidget">',
+            'after_widget' => '</div>',
+            'before_title' => '<h4 class="topBlockWidgetTitle">',
+            'after_title' => '</h4>'
+        )
+    );
+    register_sidebar(
+        array(
             'name'=>'Right Sidebar (Left)',
             'before_widget' => '<div class="rightSideBarLeftWidget">',
             'after_widget' => '</div>',
@@ -26,16 +35,6 @@ if (function_exists('register_sidebar')) {
             'before_widget' => '<div class="bottomBarWidget">',
             'after_widget' => '</div>',
             'before_title' => '<h4 class="bottomBarWidgetTitle">',
-            'after_title' => '</h4>'
-        )
-    );
-    
-    register_sidebar(
-        array(
-            'name'=>'Top Blobk',
-            'before_widget' => '<div class="topBlockWidget">',
-            'after_widget' => '</div>',
-            'before_title' => '<h4 class="topBlockWidgetTitle">',
             'after_title' => '</h4>'
         )
     );
