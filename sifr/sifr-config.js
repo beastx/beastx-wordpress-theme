@@ -72,3 +72,8 @@ sIFR.replace(SohoGothicProLight, {
     selector: 'h4.rightSideBarRightWidgetTitle',
     css: '.sIFR-root { background-color: #302B38; color: #f9f9f9; }'
 });
+
+sIFR.replace(SohoGothicProLight, {
+    selector: '#searchform label',
+    css: '.sIFR-root { background-color: #302B38; color: #f9f9f9; }'
+});

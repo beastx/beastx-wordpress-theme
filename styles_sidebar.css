@@ -15,7 +15,6 @@
 }
 
 .rightSideBar #topBlock {
-    margin-bottom: 2em;
     padding: 1em 0;
 }
 
@@ -47,3 +46,22 @@
     list-style-image: url(images/ulItem.gif);
 }
 
+.rightSideBar #topBlock .topBlockWidget,
+.rightSideBar #leftBar .rightSideBarLeftWidget,
+.rightSideBar #rightBar .rightSideBarRightWidget {
+    margin-bottom: 2em;
+}
+
+/* if search form widget is included we need change the styles of the label to see that like as h4 widget title element */
+#searchform {
+    margin-top: 1em;
+}
+
+#searchform label {
+    font-size: 1.3em;
+    font-weight: bold;
+    border-bottom: 3px solid #555555;
+    margin-bottom: 0.5em;
+    line-height: 1em;
+    display: block;
+}
