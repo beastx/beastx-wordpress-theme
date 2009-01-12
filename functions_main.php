@@ -40,6 +40,7 @@ if (function_exists('register_sidebar')) {
     );
 }
 
+
 function getImageTag($imageUrl, $width = null, $height = null, $cssClass = null, $alt = null) {
     $imageTag = '<img src="' . get_bloginfo('template_url') . '/images/' . $imageUrl . '" ';
     
@@ -64,6 +65,7 @@ function getImageTag($imageUrl, $width = null, $height = null, $cssClass = null,
     return $imageTag;
 }
 
+
 function getGravatarBlockByEmail($email) {
     $return = '<span class="gravatar">';
     $size=40;
@@ -80,6 +82,42 @@ function getGravatarBlockByEmail($email) {
     
     $return .= '</span>';
     return $return;
+}
+
+
+function getInputTag($var, $type, $description = "", $value = "", $selected="") {
+    echo "\n";
+    switch ($type) {
+        
+        case 'text':
+            echo '<input name="' . $var . '" id="'. $var . '" type="' . $type . '" style="width: 60%" class="textbox" value="' . $value . '" />';
+            break;
+        
+        case 'submit':
+            echo '<p class="submit"><input name="' . $var . '" type="' . $type . '" value="' . $value . '" /></p>';
+            break;
+        
+        case 'option':
+            if ($selected == $value) {
+                $extra = 'selected="selected"';
+            }
+            echo '<option value="' . $value . '" ' . $extra . ' >' . $description . '</option>';
+            break;
+        
+        case 'radio':
+            if ($selected == $value) { $extra = 'checked="checked"'; }
+            echo '<label><input name="' . $var . '" id="' . $var . '" type="' . $type . '" value="' . $value . '" ' . $extra . ' /> ' . $description . '</label><br/>';
+            break;
+
+        case 'checkbox':
+            if ($selected == $value) { $extra = 'checked="checked"'; }
+            echo '<label for="' . $var . '"><input name="' . $var . '" id="' . $var . '" type="' . $type . '" value="' . $value . '" ' . $extra . ' />' . $description . '</label><br/>';
+            break;
+        
+        case 'textarea':
+            echo '<textarea name="' . $var . '" id="' . $var . '" style="width: 80%; height: 10em;" class="code">' . $value . '</textarea>';
+            break;
+    }
 }
 
 ?>
