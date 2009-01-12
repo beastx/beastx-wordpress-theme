@@ -47,7 +47,7 @@
                         <? the_content('Read the rest of this entry &raquo;');   ?>
                     </div>
                     <div class="entryFooter">
-                        <? require_once('postInfo.php'); ?>
+                        <? require('postInfo.php'); ?>
                     </div>
                 </div>
             <? } // end while ?>
