@@ -1,70 +1,56 @@
 <?
 
-if ('comments.php' == basename($_SERVER['SCRIPT_FILENAME'])) {
+if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME'])) {
     die ('Please do not load this page directly. Thanks!');
-};
+}
 
-if (!empty($post->post_password)) {
-    if ($_COOKIE['wp-postpass_' . COOKIEHASH] != $post->post_password) {
-        ?>
-            <p class="nocomments">This post is password protected. Enter the password to view comments.<p>
+if (post_password_required() ) {
+    echo '<p class="nocomments">This post is password protected. Enter the password to view comments.</p>';
+    return;
+}
+
+function comment_add_microid($classes) {
+    $c_email=get_comment_author_email();
+    $c_url=get_comment_author_url();
+    if (!empty($c_email) && !empty($c_url)) {
+        $microid = 'microid-mailto+http:sha1:' . sha1(sha1('mailto:'.$c_email).sha1($c_url));
+        $classes[] = $microid;
+    }
+    return $classes;
+}
+
+add_filter('comment_class','comment_add_microid');
+
+
+
+if ( have_comments() ) { ?>
+    <h4 id="comments">
         <?
-        return;
+            $comment_count = get_comment_count($post->ID);
+            if ($comment_count['approved'] == 0) {
+                echo 'No comments yet, be the first.';
+            } else if ($comment_count['approved'] == 1) {
+                echo '1 Comment.';
+            } else {
+                echo $comment_count['approved'] . ' Comments';
+            }
+        ?>
+    </h4>
+    <ul class="commentlist" id="singlecomments">
+        <? wp_list_comments(array('avatar_size'=>48, 'reply_text'=>'Reply to this Comment')); ?>
+    </ul>
+    <div class="navigation">
+        <div class="alignleft"><? previous_comments_link() ?></div>
+        <div class="alignright"><? next_comments_link() ?></div>
+    </div>
+<? } else { ?>
+    <? if ('open' == $post->comment_status) {
+        // If comments are open, but there are no comments.
+    } else {
+        // comments are closed 
     }
 }
 
-$oddcomment = 'alt';
-
-if ($comments) { ?>
-    <h3 class="comments"><? comments_number('No Responses', 'One Response', '% Responses' );?> to &#8220;<? the_title(); ?>&#8221;</h3> 
-    <ol class="commentlist">
-        <? foreach ($comments as $comment) { ?>
-        
-            <? if(get_comment_type() == 'comment') { ?>
-                <li class="<? echo $oddcomment; ?>" id="comment-<? comment_ID() ?>">
-                    <? getGravatarBlock($comment->comment_author_email); ?>
-                    <div class="commentmeta">
-                        <cite><? comment_author_link() ?></cite>
-                        <small>
-                            <a href="#comment-<? comment_ID() ?>" title=""><? comment_date('F jS, Y') ?> at <? comment_time() ?></a>
-                            <? edit_comment_link('e','',''); ?>
-                        </small>
-                    </div>
-                    <? if ($comment->comment_approved == '0') { ?>
-                        <em>Your comment is awaiting moderation.</em>
-                    <? } ?>
-                    <? comment_text() ?>
-                </li>
-
-                <?  if ($oddcomment == 'alt') { $oddcomment = ''; } else { $oddcomment = 'alt'; } ?>
-            <? } ?>
-        <? } ?>
-    </ol>
-    <? if (!is_page('services')) { ?>
-        <h3 class="comments">Trackbacks/Pingbacks</h3>
-    <? } ?>
-    <ol>
-        <? foreach ($comments as $comment) { ?>
-            <? if(get_comment_type() != 'comment') { ?>
-                <li><? comment_author_link() ?></li>
-            <? } ?>
-        <? } ?>
-    </ol>
-<? } else {
-    //~ Dont have any post to show
-    if ('open' != $post->comment_status) { ?>
-        <p class="nocomments"></p>
-    <? } else { ?>
-        <div id="comments">
-            <h3 class="comments">Leave a 
-                <? if (is_page('services')) { echo 'Testimonial'; } else { echo 'Reply';  } ?>
-            </h3>
-        </div>
-
-        <? if ( get_option('comment_registration') && !$user_ID ) { ?>
-            <p>You must be <a href="<? echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<? the_permalink(); ?>">logged in</a> to post a comment.</p>
-        <? } else { ?>
-            <? require_once('commentsForm.php'); ?>
-        <? } ?>
-    <? }?>
-<? }?>
+if ('open' == $post-> comment_status) {
+    require_once('commentsForm.php');
+};
