@@ -4,8 +4,202 @@
 
 .comments_block {
     clear: both;
+    background-image: url(images/commentsHeaderBG.gif);
+    background-repeat: repeat-x;
+    position: relative;
 }
 
 .comments_block a {
     color: #666;
+}
+
+.comments_block .commentsHeader {
+    height: 3.5em;
+    padding-left: 2em;
+    padding-top: 2em;
+}
+
+.comments_block .commentsTitle {
+    font-size: 1.3em;
+    display: inline;
+}
+
+.comments_block .commentCountBlock {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1em;
+    position: absolute;
+    right: -5px;
+    top: 1em;
+}
+
+.comments_block .commentCountBlock .commentCountBlockLeftBorder {
+    background-image: url(images/commentsCounterIzq.gif);
+    background-repeat: no-repeat;
+    width: 14px;
+    height: 43px;
+    float: right;
+}
+
+.comments_block .commentCountBlock .commentCountBlockRightBorder {
+    background-image: url(images/commentsCounterDer.gif);
+    background-repeat: no-repeat;
+    width: 3px;
+    height: 43px;
+    float: right;
+}
+
+.comments_block .commentCountBlock .commentCount {
+    background-image: url(images/commentsCounterBG.gif);
+    background-repeat: repeat-x;
+    float: right;
+    height: 40px;
+    padding: 3px 1em 0 0.5em;
+}
+
+.comments_block .commentCountBlock .noComments {
+    height: 32px;
+    padding: 11px 1em 0 0.5em;
+}
+
+.comments_block .commentCountBlock .lastOn{
+    font-size: 0.6em;
+}
+
+.comments_block ul.commentlist {
+    list-style-type: none;
+    clear: both;
+    list-style-position:outside;
+}
+
+.comments_block ul.commentlist li.comment {
+    overflow: visible;
+    background-image: url(images/commentedByBG.gif);
+    background-repeat: no-repeat;
+    background-position: 35px 15px;
+    padding-left: 106px;
+    font-size: 0.8em;
+    position: relative;
+}
+
+.comments_block ul.commentlist li.comment .commentContainer {
+    border-bottom: 1px solid #CCC;
+    border-top: 1px solid #FFF;
+    min-height: 100px;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    padding-left: 1em;
+    margin-right: 2em;
+}
+
+.comments_block ul.commentlist li.comment .first {
+    border-top: 0px;
+}
+
+.comments_block ul.commentlist li.comment .last {
+    border-bottom: 0px;
+}
+
+.comments_block ul.commentlist li.comment .avatar {
+    border: 1px solid #DDDDDD;
+    float: left;
+    margin-left: -90px;
+    padding: 3px;
+    background-color: #FFFFFF;
+}
+
+.comments_block ul.commentlist li.comment .comment-author {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.comments_block ul.commentlist li.comment .commentText {
+    font-size: 0.9em;
+    font-style: italic;
+    padding: 0.5em 2em 1em 0em;
+    color: #666;
+}
+
+.comments_block ul.commentlist li.comment .commentText p {
+    margin-bottom: 1em;
+}
+
+.comments_block ul.commentlist li.comment .commentNumber {
+    font-size: 3em;
+    color: #DFDFDF;
+    font-weight: bold;
+    position: absolute;
+    top: 0px;
+    right: 1em;
+}
+
+.comments_block ul.commentlist li.comment .comment-meta a {
+    color: #999;
+    font-size: 0.8em;
+}
+
+.comments_block .respondBlock {
+    clear: both;
+    padding: 2em;
+}
+
+.comments_block .respondBlock label {
+    display: block;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.comments_block .respondBlock label .required{
+    color: red;
+    font-size: 0.7em;
+    font-weight: normal;
+}
+
+.comments_block .respondBlock #xhtmlTags{
+    position: relative;
+    font-weight: normal;
+    color: #999;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.comments_block .respondBlock #availableTags{
+    font-size: 1em;
+    font-weight: normal;
+    border: 1px solid #999;
+    background-color: #EEE;
+    padding: 1em;
+    position: absolute;
+    width: 20em;
+    display: none;
+    left: 0px;
+}
+
+.comments_block .respondBlock table {
+    width: 100%;
+}
+
+.comments_block .respondBlock td {
+    vertical-align: top;
+}
+
+.comments_block .respondBlock .autorInputs {
+    width: 40%;
+    padding-right: 2em;
+}
+
+.comments_block .respondBlock .commentInputs {
+    width: 60%;
+}
+
+.comments_block .respondBlock .autorInputs input,
+.comments_block .respondBlock .commentInputs textarea {
+    width: 100%;
+    font-size: 0.8em;
+    padding: 0.2em;
+}
+
+.comments_block .respondBlock .autorInputs input#submit {
+    margin-top: 2em;
+    width: auto;
 }
