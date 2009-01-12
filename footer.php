@@ -22,11 +22,13 @@
                                     <td class="blogInfoContent">
                                         <div>
                                             <span class="blogInfo">
-                                                <?php bloginfo('name'); ?> is powered by <a href="http://wordpress.org/">WordPress</a> | 
-                                                <a href="<?php bloginfo('rss2_url'); ?>">Entries (RSS)</a> and <a href="<?php bloginfo('comments_rss2_url'); ?>">Comments (RSS)</a>
+                                                <?php bloginfo('name'); ?> is powered by <a href="http://wordpress.org/">WordPress</a> |
                                             </span>
                                             <?=getImageTag('validXHTML.gif', 59, 16, 'Valid XHTML Code'); ?>
                                             <?=getImageTag('validCSS.gif', 44, 16, 'Valid CSS Code'); ?>
+                                        </div>
+                                        <div>
+                                            <a href="<?php bloginfo('rss2_url'); ?>">Entries (RSS)</a> and <a href="<?php bloginfo('comments_rss2_url'); ?>">Comments (RSS)</a>
                                         </div>
                                     </td>
                                 </tr>
