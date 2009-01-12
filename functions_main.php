@@ -64,4 +64,22 @@ function getImageTag($imageUrl, $width = null, $height = null, $cssClass = null,
     return $imageTag;
 }
 
+function getGravatarBlockByEmail($email) {
+    $return = '<span class="gravatar">';
+    $size=40;
+    $default=get_bloginfo('template_directory').'/images/gravatar.jpg';
+    $email=strtolower(trim($email));
+    $rating = "G"; // [G | PG | R | X]
+    
+    if (function_exists('get_avatar')) {
+        $return .= get_avatar($email, $size, $default);
+    } else {
+        $grav_url = "http://www.gravatar.com/avatar.php?gravatar_id=" . md5($emaill) . "&default=" . urlencode($default) . "&size=" . $size."&rating=".$rating;
+        $return .= '<img src=' . $grav_url . '/>';
+    }
+    
+    $return .= '</span>';
+    return $return;
+}
+
 ?>
