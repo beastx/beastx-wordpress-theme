@@ -13,7 +13,4 @@
     <? if ( (function_exists('similar_posts')) && is_single()) { /* Related Posts Plugin */ ?> 
         <div class="relpost" ><? similar_posts(); ?></div>
     <? } ?>
-    <div class="comments_block">
-        <? comments_template(); ?>
-    </div>  
 </div>
