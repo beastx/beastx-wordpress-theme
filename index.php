@@ -54,11 +54,7 @@
                             <? if ($postCount==1) { social_bookmarks(); }?>
                             <div class="postInCategories">Post in <? the_category(', ') ?> </div>
                             <div class="commentslink">
-                                <? comments_popup_link(
-                                    'No comments yet, be the first &#187;',
-                                    '1 Comment, join up &#187;',
-                                    '% Comments, read on &#187;'
-                                );?>
+                                <?php comments_template(); ?>
                             </div>  
                             <? if ($postCount==1) { if(function_exists('wp_print')) { print_link(); }} ?> 
                         </div>
