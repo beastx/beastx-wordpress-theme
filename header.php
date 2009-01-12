@@ -35,10 +35,10 @@
                 <div class="header">
                     <div class="mainButtonsContainer">
                         <ul class="mainButtonsList">
-                            <li class="mainButton"><a class="aboutMeLink" href="" title=""> <span>About me</span></a></li>
-                            <li class="mainButton"><a class="archiveLink" href="" title=""> <span>Archives</span></a></li>
-                            <li class="mainButton"><a class="downloadsLink" href="" title=""> <span>Downloads</span></a></li>
-                            <li class="mainButton"><a class="contactLink" href="" title=""> <span>Contact</span></a></li>
+                            <li class="mainButton"><a class="aboutMeLink" href="/about/" title=""> <span>About me</span></a></li>
+                            <li class="mainButton"><a class="archiveLink" href="/archives/" title=""> <span>Archives</span></a></li>
+                            <li class="mainButton"><a class="downloadsLink" href="/downloads/" title=""> <span>Downloads</span></a></li>
+                            <li class="mainButton"><a class="contactLink" href="/contact/" title=""> <span>Contact</span></a></li>
                             <?
                                 if (current_user_can('level_10')) {
                                     _e('<li class="mainButton"><a class="contactLink" href="'.get_settings('home').'/wp-admin/" title="Admin"><span>Admin</span></a></li>');
