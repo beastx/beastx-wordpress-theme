@@ -9,35 +9,49 @@ if (post_password_required() ) {
     return;
 }
 
-function comment_add_microid($classes) {
-    $c_email=get_comment_author_email();
-    $c_url=get_comment_author_url();
-    if (!empty($c_email) && !empty($c_url)) {
-        $microid = 'microid-mailto+http:sha1:' . sha1(sha1('mailto:'.$c_email).sha1($c_url));
-        $classes[] = $microid;
-    }
-    return $classes;
-}
+?>
 
-add_filter('comment_class','comment_add_microid');
-
-
-
-if ( have_comments() ) { ?>
-    <h4 id="comments">
+<div class="commentsHeader">
+    <h4 class="commentsTitle">
+        Comments
+    </h4>
+    <div class="commentCountBlock">
+        <div class="commentCountBlockRightBorder"></div>
         <?
             $comment_count = get_comment_count($post->ID);
             if ($comment_count['approved'] == 0) {
-                echo 'No comments yet, be the first.';
+                ?>
+                <div class="commentCount noComments">
+                    No comments yet.
+                    <div class="lastOn"></div>
+                </div>
+                <?
             } else if ($comment_count['approved'] == 1) {
-                echo '1 Comment.';
+                ?>
+                <div class="commentCount oneComment">
+                    1 Comment.
+                    <div class="lastOn">Last on <? echo $comments[count($comments) - 1]->comment_date ?></div>
+                </div>
+                <?
             } else {
-                echo $comment_count['approved'] . ' Comments';
+                ?>
+                <div class="commentCount">
+                    <? echo $comment_count['approved'] ?> Comments.
+                    <div class="lastOn">Last on <? echo strftime("%a %b %e, %Y", strtotime($comments[count($comments) - 1]->comment_date)); ?></div>
+                </div>
+                <?
             }
         ?>
-    </h4>
+        <div class="commentCountBlockLeftBorder"></div>
+    </div>
+</div>
+
+
+<?
+
+if ( have_comments() ) { ?>
     <ul class="commentlist" id="singlecomments">
-        <? wp_list_comments(array('avatar_size'=>48, 'reply_text'=>'Reply to this Comment')); ?>
+        <? wp_list_comments(array('callback'=>'getCommentBlock')); ?>
     </ul>
     <div class="navigation">
         <div class="alignleft"><? previous_comments_link() ?></div>
