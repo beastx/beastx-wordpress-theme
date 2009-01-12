@@ -5,10 +5,7 @@
 <div class="contentContainer">
     <div id="content">
 
-        <h2 class="title">Sitemap of <?php bloginfo('name') ?></h2>
-        
-        
-        <h2 class="title"><?php bloginfo('name') ?> Archives</h2>
+        <h2 class="title"><?php bloginfo('name') ?> Archives and Sitemap</h2>
 
         <h3>By Category</h3>
         <ul>
