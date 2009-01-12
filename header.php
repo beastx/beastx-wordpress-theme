@@ -19,11 +19,6 @@
         
         <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/core.js"></script>
         
-        <?
-            $tinkermanPath = get_bloginfo('template_directory') . '/scripts/tinkerman/';
-            require_once('scripts/tinkerman/includeLog.php');
-        ?>
-        
         <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/ui/TabManager.js"></script>
         <script type="text/javascript" src="<? bloginfo('template_directory') ?>/scripts/ui/FooterToggler.js"></script>
         
