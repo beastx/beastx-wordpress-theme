@@ -4,9 +4,6 @@
 </div>
 <div class="contentContainer">
     <div id="content">
-
-
-
         <? if (have_posts()) {
             $postCount=0;
             while (have_posts()) {
@@ -50,14 +47,7 @@
                         <? the_content('Read the rest of this entry &raquo;');   ?>
                     </div>
                     <div class="entryFooter">
-                        <div class="postinfo"> 
-                            <? if ($postCount==1) { social_bookmarks(); }?>
-                            <div class="postInCategories">Post in <? the_category(', ') ?> </div>
-                            <div class="commentslink">
-                                <?php comments_template(); ?>
-                            </div>  
-                            <? if ($postCount==1) { if(function_exists('wp_print')) { print_link(); }} ?> 
-                        </div>
+                        <? require_once('postInfo.php'); ?>
                     </div>
                 </div>
             <? } // end while ?>
@@ -81,9 +71,4 @@
         <? } ?>
     </div>
 </div>
-
-
-
-
-
 <? get_footer(); ?>
