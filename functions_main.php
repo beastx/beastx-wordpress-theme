@@ -65,26 +65,6 @@ function getImageTag($imageUrl, $width = null, $height = null, $cssClass = null,
     return $imageTag;
 }
 
-
-function getGravatarBlockByEmail($email) {
-    $return = '<span class="gravatar">';
-    $size=40;
-    $default=get_bloginfo('template_directory').'/images/gravatar.jpg';
-    $email=strtolower(trim($email));
-    $rating = "G"; // [G | PG | R | X]
-    
-    if (function_exists('get_avatar')) {
-        $return .= get_avatar($email, $size, $default);
-    } else {
-        $grav_url = "http://www.gravatar.com/avatar.php?gravatar_id=" . md5($emaill) . "&default=" . urlencode($default) . "&size=" . $size."&rating=".$rating;
-        $return .= '<img src=' . $grav_url . '/>';
-    }
-    
-    $return .= '</span>';
-    return $return;
-}
-
-
 function getInputTag($var, $type, $description = "", $value = "", $selected="", $options = array()) {
     echo "\n";
     switch ($type) {
@@ -125,5 +105,56 @@ function getInputTag($var, $type, $description = "", $value = "", $selected="", 
             break;
     }
 }
+
+
+function getCommentBlock($comment, $args, $depth) {
+    $GLOBALS['comment'] = $comment;
+    global $commentNumber;
+    ++$commentNumber;
+    if ($commentNumber == 1) {
+        $extraClass = 'first';
+    } else {
+        $extraClass = '';
+    }
+    ?>
+    <li <? comment_class(); ?> id="li-comment-<? comment_ID() ?>">
+        <div class="commentContainer <? echo $extraClass ?>" id="comment-<? comment_ID(); ?>">
+            <div class="commentNumber"><? echo $commentNumber?></div>
+            <div class="comment-author vcard">
+                <? echo get_avatar($comment, $size='48', $default=get_bloginfo('template_directory') . '/images/gravatar.jpg' ); ?>
+                <? printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?>
+            </div>
+            <? if ($comment->comment_approved == '0') { ?>
+                <em><? _e('Your comment is awaiting moderation.') ?></em>
+                <br />
+            <? } ?>
+            <div class="commentText">
+                <? comment_text() ?>
+            </div>
+            <div class="comment-meta commentmetadata">
+                <a href="<? echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>">
+                    <? printf(__('%1$s at %2$s'), comment_date('M jS, Y'),  get_comment_time()) ?>
+                </a>
+                <? edit_comment_link(__('Edit'),' | ','') ?>
+            </div>
+            <div class="reply">
+                <? comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+            </div>
+        </div>
+<?
+}
+
+function comment_add_microid($classes) {
+    $c_email=get_comment_author_email();
+    $c_url=get_comment_author_url();
+    if (!empty($c_email) && !empty($c_url)) {
+        $microid = 'microid-mailto+http:sha1:' . sha1(sha1('mailto:'.$c_email).sha1($c_url));
+        $classes[] = $microid;
+    }
+    return $classes;
+}
+add_filter('comment_class', 'comment_add_microid');
+
+$commentNumber = 0;
 
 ?>
