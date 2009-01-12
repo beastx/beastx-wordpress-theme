@@ -85,33 +85,39 @@ function getGravatarBlockByEmail($email) {
 }
 
 
-function getInputTag($var, $type, $description = "", $value = "", $selected="") {
+function getInputTag($var, $type, $description = "", $value = "", $selected="", $options = array()) {
     echo "\n";
     switch ($type) {
         
         case 'text':
-            echo '<input name="' . $var . '" id="'. $var . '" type="' . $type . '" style="width: 60%" class="textbox" value="' . $value . '" />';
+        case 'file':
+            echo '<input name="' . $var . '" id="'. $var . '" type="' . $type . '" class="textbox" value="' . $value . '" />';
             break;
-        
+            
         case 'submit':
             echo '<p class="submit"><input name="' . $var . '" type="' . $type . '" value="' . $value . '" /></p>';
             break;
         
-        case 'option':
-            if ($selected == $value) {
-                $extra = 'selected="selected"';
+        case 'select':
+            echo '<select name="' . $var . '" id="'. $var . '">';
+            for ($i = 0; $i < count($options); ++$i) {
+                echo '<option value="' . $options[$i]['value'] . '"';
+                if ($value == $options[$i]['value']) {
+                    echo ' selected="selected" ';
+                }
+                 echo '>' . $options[$i]['name'] . '</option>';
             }
-            echo '<option value="' . $value . '" ' . $extra . ' >' . $description . '</option>';
+            echo '</select>';
             break;
         
         case 'radio':
             if ($selected == $value) { $extra = 'checked="checked"'; }
-            echo '<label><input name="' . $var . '" id="' . $var . '" type="' . $type . '" value="' . $value . '" ' . $extra . ' /> ' . $description . '</label><br/>';
+            echo '<label for="' . $var . '"><input name="' . $var . '" id="' . $var . '" type="' . $type . '" value="' . $value . '" ' . $extra . ' /> ' . $description . '</label>';
             break;
 
         case 'checkbox':
             if ($selected == $value) { $extra = 'checked="checked"'; }
-            echo '<label for="' . $var . '"><input name="' . $var . '" id="' . $var . '" type="' . $type . '" value="' . $value . '" ' . $extra . ' />' . $description . '</label><br/>';
+            echo '<label for="' . $var . '"><input name="' . $var . '" id="' . $var . '" type="' . $type . '" value="' . $value . '" ' . $extra . ' />' . $description . '</label>';
             break;
         
         case 'textarea':
