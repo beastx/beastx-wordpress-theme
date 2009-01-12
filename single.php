@@ -49,6 +49,9 @@
                     <div class="entryFooter">
                         <? require_once('postInfo.php'); ?>
                     </div>
+                    <div class="comments_block">
+                        <? comments_template(); ?>
+                    </div>
                 </div>
             <? } // end while ?>
             
